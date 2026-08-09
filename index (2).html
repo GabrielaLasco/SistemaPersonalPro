@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Personal Pro — Aumente sua renda como Personal Trainer</title>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2251766202241406');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2251766202241406&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #13131f;
+            --bg-elevated: #1a1a2e;
+            --neon-green: #00ff88;
+            --neon-blue: #00d4ff;
+            --neon-orange: #ff6b35;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0c0;
+            --danger: #ff2a2a;
+            --gradient-cta: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            --gradient-orange: linear-gradient(135deg, #ff6b35 0%, #ff2a2a 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de partículas sutis no fundo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0,255,136,0.03) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0,212,255,0.03) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+            position: relative;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 43, 43, 0.15);
+            color: var(--danger);
+            border: 1px solid rgba(255, 43, 43, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+            animation: pulseBadge 2s infinite;
+        }
+
+        @keyframes pulseBadge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,43,43,0.3); }
+            50% { box-shadow: 0 0 0 10px rgba(255,43,43,0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .highlight {
+            color: var(--neon-green);
+            -webkit-text-fill-color: var(--neon-green);
+            position: relative;
+        }
+
+        .hero .subheadline {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .hero .kicker {
+            background: var(--bg-elevated);
+            border-left: 4px solid var(--neon-blue);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 28px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .hero .kicker strong {
+            color: var(--text-primary);
+        }
+
+        /* ===== BOTÕES ===== */
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            max-width: 600px;
+            padding: 22px 32px;
+            font-size: 1.15rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000;
+            background: var(--gradient-cta);
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,255,136,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255,255,255,0.2) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg);
+            transition: all 0.6s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,255,136,0.4);
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .cta-button.orange {
+            background: var(--gradient-orange);
+            box-shadow: 0 8px 32px rgba(255,107,53,0.25);
+            color: #fff;
+        }
+
+        .cta-button.orange:hover {
+            box-shadow: 0 12px 40px rgba(255,107,53,0.4);
+        }
+
+        .cta-wrapper {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 12px;
+        }
+
+        /* ===== SEÇÕES ===== */
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        /* ===== PROBLEMA ===== */
+        .problem-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(255,42,42,0.05) 50%, var(--bg-dark) 100%);
+        }
+
+        .problem-section h2 {
+            color: var(--danger);
+        }
+
+        .problem-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,42,42,0.2);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: rgba(255,42,42,0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(255,42,42,0.1);
+        }
+
+        .problem-card .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .problem-card h4 {
+            color: var(--danger);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ===== SOLUÇÃO ===== */
+        .solution-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(0,255,136,0.04) 50%, var(--bg-dark) 100%);
+        }
+
+        .solution-section h2 {
+            color: var(--neon-green);
+        }
+
+        .solution-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(0,255,136,0.2);
+            border-radius: 20px;
+            padding: 36px;
+            text-align: center;
+            margin-top: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-cta);
+        }
+
+        .solution-box p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .solution-box strong {
+            color: var(--neon-green);
+        }
+
+        /* ===== PRODUTOS / O QUE RECEBE ===== */
+        .product-section {
+            background: var(--bg-dark);
+        }
+
+        .product-section h2 {
+            color: var(--neon-blue);
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0,212,255,0.15);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--gradient-cta);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            border-color: rgba(0,212,255,0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,212,255,0.08);
+        }
+
+        .product-card .tag {
+            display: inline-block;
+            background: rgba(0,212,255,0.12);
+            color: var(--neon-blue);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .product-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        .product-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-card ul li {
+            color: var(--text-secondary);
+            padding: 8px 0 8px 28px;
+            position: relative;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .product-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .product-card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--neon-green);
+            font-weight: 700;
+        }
+
+        /* ===== BÔNUS DESTACADOS ===== */
+        .bonus-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(255,107,53,0.04) 50%, var(--bg-dark) 100%);
+        }
+
+        .bonus-section h2 {
+            color: var(--neon-orange);
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        @media(min-width: 640px) {
+            .bonus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .bonus-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+            border: 2px solid rgba(255,107,53,0.25);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .bonus-card .gift-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .bonus-card .bonus-label {
+            display: inline-block;
+            background: var(--gradient-orange);
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .bonus-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .bonus-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(255,107,53,0.5);
+            box-shadow: 0 16px 40px rgba(255,107,53,0.12);
+        }
+
+        /* ===== GARANTIA ===== */
+        .guarantee-section {
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,212,255,0.1));
+            border: 3px solid var(--neon-green);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+            box-shadow: 0 0 40px rgba(0,255,136,0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .guarantee-badge span {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neon-green);
+            line-height: 1;
+        }
+
+        .guarantee-badge small {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .guarantee-section h2 {
+            color: var(--neon-green);
+            margin-bottom: 16px;
+        }
+
+        .guarantee-section p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        /* ===== OFERTA / PREÇO ===== */
+        .offer-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(0,255,136,0.06) 100%);
+            text-align: center;
+        }
+
+        .offer-card {
+            background: var(--bg-card);
+            border: 2px solid rgba(0,255,136,0.2);
+            border-radius: 24px;
+            padding: 48px 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::after {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(0,255,136,0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .offer-label {
+            display: inline-block;
+            background: rgba(255,107,53,0.15);
+            color: var(--neon-orange);
+            border: 1px solid rgba(255,107,53,0.3);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .old-price {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            text-decoration: line-through;
+            text-decoration-color: var(--danger);
+            text-decoration-thickness: 3px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 900;
+            color: var(--neon-green);
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(0,255,136,0.2);
+        }
+
+        .installment {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+        }
+
+        .installment strong {
+            color: var(--neon-blue);
+        }
+
+        .urgency {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .urgency .dot {
+            width: 8px; height: 8px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            background: var(--bg-dark);
+        }
+
+        .faq-section h2 {
+            color: var(--neon-blue);
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(0,212,255,0.2);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 22px 24px;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--neon-blue);
+        }
+
+        .faq-question .icon-faq {
+            font-size: 1.3rem;
+            color: var(--neon-blue);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+
+        .faq-item.active .icon-faq {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 22px;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== CHECKLIST ===== */
+        .checklist-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(0,212,255,0.04) 100%);
+        }
+
+        .checklist-section h2 {
+            color: var(--neon-blue);
+        }
+
+        .checklist-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0,212,255,0.15);
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 24px;
+        }
+
+        .checklist-card ol {
+            list-style: none;
+            counter-reset: checklist;
+        }
+
+        .checklist-card li {
+            counter-increment: checklist;
+            padding: 18px 0 18px 56px;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .checklist-card li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-card li::before {
+            content: counter(checklist);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-green));
+            color: #000;
+            font-weight: 900;
+            font-size: 0.9rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .checklist-card li strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1.05rem;
+        }
+
+        /* ===== FOOTER CTA ===== */
+        .final-cta {
+            text-align: center;
+            padding: 60px 0 80px;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            margin-bottom: 24px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media(max-width: 480px) {
+            .container { padding: 0 16px; }
+            .hero { padding: 50px 0 40px; }
+            .product-card, .bonus-card, .checklist-card, .offer-card { padding: 24px; }
+            .guarantee-badge { width: 130px; height: 130px; }
+            .guarantee-badge span { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge">⚡ Oferta de Lançamento</div>
+            <h1>Chega de Vender Horas e Ficar Refém da Academia.</h1>
+            <p class="subheadline">
+                Atraia novos alunos no <strong>WhatsApp</strong>, feche contratos <strong>sem dar desconto</strong> e estruture sua <strong>consultoria online</strong> com o sistema definitivo feito para Personal Trainers.
+            </p>
+            <div class="cta-wrapper">
+                <a href="https://chk.eduzz.com/R9JXYE280X" class="cta-button">Quero Acessar o Sistema Personal Pro Agora →</a>
+                <p class="cta-note">Acesso Imediato e Download Instantâneo dos Arquivos</p>
+            </div>
+            <div class="kicker reveal">
+                <strong>Uma caixa de ferramentas completa</strong> com Inteligência Artificial, contratos editáveis, planilhas financeiras e roteiros de vendas para profissionalizar sua carreira.
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>🔴 O Maior Problema do Personal Trainer Moderno</h2>
+                <p>A maioria dos profissionais de Educação Física enfrenta os mesmos 3 desafios todos os dias:</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card reveal">
+                    <span class="icon">⏰</span>
+                    <h4>Agenda lotada de hora/aula, mas faturamento limitado</h4>
+                    <p>Se você não trabalha, não ganha. O tempo é finito e a renda depende 100% da sua presença física.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <span class="icon">💬</span>
+                    <h4>Leads no WhatsApp que somem ao saber o preço</h4>
+                    <p>Pessoas pedem orçamento, recebem o valor e entram no "vácuo" — sem resposta, sem retorno, sem venda.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <span class="icon">📉</span>
+                    <h4>Desorganização total na gestão</h4>
+                    <p>Sem contrato assinado, sem controle de mensalidades e sem tempo para criar posts no Instagram.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUÇÃO -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>🟢 A Solução: Conheça o Sistema Personal Pro</h2>
+            </div>
+            <div class="solution-box reveal">
+                <p>
+                    O <strong>Sistema Personal Pro</strong> não é apenas um e-book de teoria. É uma <strong>metodologia de execução rápida</strong> que entrega ferramentas prontas para você usar no seu celular ou computador em minutos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- O QUE VAI RECEBER -->
+    <section class="product-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>📦 O Que Você Vai Receber Hoje (O Combo Completo)</h2>
+            </div>
+
+            <div class="product-card reveal">
+                <span class="tag">Produto Principal</span>
+                <h3>📘 Guia Principal: Prompts de Inteligência Artificial para Personal Trainers (PDF)</h3>
+                <ul>
+                    <li><strong>Vendas no WhatsApp:</strong> Prompts calibrados para responder clientes sem dar o preço de cara, contornar objeções ("achei caro") e reativar contatos travados em 2 linhas.</li>
+                    <li><strong>Prescrição & Treinos:</strong> Gerador de fichas personalizadas, adaptações rápidas para treinos em casa ou viagens e análise de anamnese.</li>
+                    <li><strong>Marketing de Conteúdo:</strong> Roteiros de Reels e Stories com ganchos de alta retenção e chamadas para ação no Direct.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÔNUS -->
+    <section class="bonus-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>🎁 Bônus Exclusivos de Lançamento</h2>
+                <p>Ferramentas prontas para usar hoje mesmo e profissionalizar sua operação:</p>
+            </div>
+            <div class="bonus-grid">
+                <div class="bonus-card reveal">
+                    <span class="gift-icon">📝</span>
+                    <span class="bonus-label">Bônus 1</span>
+                    <h4>Modelo de Contrato Profissional & Termos (Word Editável — DOCX)</h4>
+                    <p>Proteção jurídica completa para aulas presenciais e consultoria. Cláusulas prontas de reagendamento, tolerância de atrasos, faltas sem aviso prévio e taxa de cancelamento.</p>
+                </div>
+                <div class="bonus-card reveal">
+                    <span class="gift-icon">📊</span>
+                    <span class="bonus-label">Bônus 2</span>
+                    <h4>Planilha de Gestão Financeira e Controle de Alunos (Excel — XLSX)</h4>
+                    <p>Layout vertical, compacto e intuitivo para celular ou notebook. Dashboard automático com total de alunos ativos, faturamento projetado, recebimentos do mês e controle de inadimplência.</p>
+                </div>
+                <div class="bonus-card reveal">
+                    <span class="gift-icon">🚀</span>
+                    <span class="bonus-label">Bônus 3</span>
+                    <h4>Guia Express "Consultoria Online do Zero" (PDF)</h4>
+                    <p>O passo a passo direto para criar e vender consultoria online sem pagar mensalidades de aplicativos caros. Inclui fluxo de atendimento, formulário de anamnese no Google Forms e tabela de precificação.</p>
+                </div>
+                <div class="bonus-card reveal">
+                    <span class="gift-icon">🎨</span>
+                    <span class="bonus-label">Bônus 4</span>
+                    <h4>Pack de Copies e Roteiros para Instagram & Canva (PDF)</h4>
+                    <p>Textos prontos para legendas de posts, anúncios de "Vagas Abertas", quebra de mitos e provas sociais (antes e depois).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GARANTIA -->
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="reveal">
+                <div class="guarantee-badge">
+                    <span>7</span>
+                    <small>Dias</small>
+                </div>
+                <h2>🛡️ Garantia Incondicional de 7 Dias</h2>
+                <p>Se por qualquer motivo você achar que o Sistema Personal Pro não facilitou sua rotina ou não te ajudou a fechar novos alunos, basta solicitar o reembolso na plataforma em até 7 dias. Devolveremos <strong style="color:var(--neon-green)">100% do seu dinheiro</strong>, sem burocracia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="offer-section" id="oferta">
+        <div class="container">
+            <div class="offer-card reveal">
+                <span class="offer-label">💳 Oferta Especial de Lançamento</span>
+                <div class="old-price">De R$ 197,00</div>
+                <div class="price">R$ 47,00</div>
+                <div class="installment">ou <strong>12x de R$ 4,70</strong></div>
+                <a href="https://chk.eduzz.com/R9JXYE280X" class="cta-button">Quero Acessar o Sistema Personal Pro Agora →</a>
+                <div class="urgency">
+                    <span class="dot"></span>
+                    <span>Acesso Imediato e Download Instantâneo dos Arquivos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>❓ Perguntas Frequentes</h2>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Como recebo o acesso aos materiais?
+                    <span class="icon-faq">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Logo após a confirmação do pagamento, você receberá um e-mail com o link direto para baixar todos os arquivos (PDFs, Word e Excel).</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Preciso pagar alguma assinatura para usar as planilhas ou o Word?
+                    <span class="icon-faq">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Não! Os arquivos são de acesso vitalício. Você baixa para o seu dispositivo e usa para sempre.</p>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Consigo editar os contratos e planilhas pelo celular?
+                    <span class="icon-faq">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sim! A planilha tem formato vertical compacto compatível com o aplicativo do Excel ou Google Planilhas, e o contrato pode ser editado no Word ou Google Docs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section class="checklist-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>📋 Checklist de Lançamento</h2>
+                <p>Siga o passo a passo prático para colocar o Sistema Personal Pro no ar:</p>
+            </div>
+            <div class="checklist-card reveal">
+                <ol>
+                    <li>
+                        <strong>Cadastro na Plataforma</strong>
+                        Crie uma conta gratuita na Kiwify, Hotmart ou Eduzz.
+                    </li>
+                    <li>
+                        <strong>Cadastro do Produto</strong>
+                        Insira o título "Sistema Personal Pro — Combo de Vendas, Gestão e Treinos", defina o preço de R$ 47,00 e faça o upload dos 5 arquivos na área de entrega.
+                    </li>
+                    <li>
+                        <strong>Página de Vendas</strong>
+                        Cole esta copy na página de vendas padrão da plataforma ou no seu construtor de páginas (WordPress, GreatPages, Elementor, etc.).
+                    </li>
+                    <li>
+                        <strong>Divulgação Inicial</strong>
+                        Utilize as copies do Bônus 4 para fazer os primeiros Stories e posts no Instagram direcionando o público para a página de vendas.
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container reveal">
+            <h2>Não deixe sua carreira na mão da sorte.<br><span style="color:var(--neon-green)">Estruture, venda e escale agora.</span></h2>
+            <div class="cta-wrapper">
+                <a href="https://chk.eduzz.com/R9JXYE280X" class="cta-button orange">Sim! Quero o Sistema Personal Pro por R$ 47 →</a>
+                <p class="cta-note">Garantia de 7 dias | Acesso Vitalício | Download Imediato</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Sistema Personal Pro. Todos os direitos reservados.</p>
+            <p style="margin-top:6px; opacity:0.6;">Este site não garante resultados específicos. O sucesso depende do esforço e aplicação individual.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Fecha todos
+            document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
+            
+            // Abre o clicado se não estava ativo
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+    <!-- Meta Pixel — Rastreamento de clique no checkout -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkoutLinks = document.querySelectorAll('a[href*="chk.eduzz.com"]');
+        checkoutLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'InitiateCheckout');
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
